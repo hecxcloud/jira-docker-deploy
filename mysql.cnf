@@ -1,0 +1,26 @@
+[mysqld]
+
+# 二进制日志格式
+binlog_format=row
+
+# 字符集设置
+character-set-server=utf8mb4
+collation-server=utf8mb4_bin
+
+# 默认存储引擎
+default-storage-engine=INNODB
+
+# innodb 设置
+innodb_log_file_size=2GB
+
+# 数据包大小限制
+max_allowed_packet=256M
+
+# InnoDB文件格式设置为Barracuda
+innodb_file_format=Barracuda
+
+# 启用大前缀
+innodb_large_prefix=ON
+
+# 行模式
+innodb_default_row_format=DYNAMIC

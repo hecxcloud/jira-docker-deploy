@@ -1,0 +1,41 @@
+version: '3'
+services:
+  jira:
+    container_name: jira
+    user: root
+    image: atlassian/jira-software:8.2.1-jdk11
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - /data/jira:/var/atlassian/application-data/jira
+      - ./atlassian-agent.jar:/opt/atlassian-agent.jar
+      - ./mysql-connector-java-5.1.48-bin.jar:/opt/atlassian/jira/lib/mysql-connector-java-5.1.48-bin.jar
+    depends_on:
+      - mysql
+    environment:
+      JVM_MINIMUM_MEMORY: 1024m
+      JVM_MAXIMUM_MEMORY: 4096m
+      JAVA_OPTS: -javaagent:/opt/atlassian-agent.jar
+    links: 
+      - mysql:database
+    labels:
+      jira.version: 8.2.1
+      mysql.jdbc.version: 5.1.48
+
+  mysql:
+    container_name: jira-mysql
+    image: mysql:5.7.20
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - /data/mysql/data:/var/lib/mysql
+      - ./conf/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: root@123
+      MYSQL_DATABASE: jira
+      MYSQL_USER: jira
+      MYSQL_PASSWORD: jira@123
+    labels:
+      mysql.version: 5.7.20
