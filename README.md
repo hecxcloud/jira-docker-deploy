@@ -1,6 +1,8 @@
 # 系统环境
 **系统: CentOS 7.6**
+
 **SElinux: Disabled**
+
 **Firewalld： stop**
 
 # Docker 安装
@@ -70,4 +72,5 @@ docker exec jira bash -c "java -jar /opt/atlassian-agent.jar -d -m test@test.com
 将输出的许可证粘贴至 Web 界面即可
 
 最后
+
 感谢大神的破解 [https://gitee.com/pengzhile/atlassian-agent](https://gitee.com/pengzhile/atlassian-agent)
