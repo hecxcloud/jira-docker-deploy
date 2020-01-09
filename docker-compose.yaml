@@ -31,7 +31,7 @@ services:
       - "3306:3306"
     volumes:
       - /data/mysql/data:/var/lib/mysql
-      - ./conf/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
+      - ./mysql.cnf:/etc/mysql/conf.d/mysql.cnf
     environment:
       MYSQL_ROOT_PASSWORD: root@123
       MYSQL_DATABASE: jira
