@@ -19,9 +19,6 @@ services:
       JAVA_OPTS: -javaagent:/opt/atlassian-agent.jar
     links: 
       - mysql:database
-    labels:
-      jira.version: 8.2.1
-      mysql.jdbc.version: 5.1.48
 
   mysql:
     container_name: jira-mysql
