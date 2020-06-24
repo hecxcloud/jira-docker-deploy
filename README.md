@@ -38,7 +38,7 @@ yum install -y git
 下载
 ```bash
 cd /opt
-git clone https://github.com/hcxcloud/jira-docker-deploy.git
+git clone https://github.com/hecxcloud/jira-docker-deploy.git
 ```
 一键安装
 > 如果内存不够可以试着修改 docker-compose.yaml，不懂就自己百度百度
